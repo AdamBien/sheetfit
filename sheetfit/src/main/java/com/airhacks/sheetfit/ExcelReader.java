@@ -1,5 +1,24 @@
 package com.airhacks.sheetfit;
 
+/*-
+ * #%L
+ * sheetfit
+ * %%
+ * Copyright (C) 2016 Adam Bien
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -32,7 +51,7 @@ public class ExcelReader {
      * @param folder the name of the folder comprising sheets from a single test
      * group e.g. SF203
      * @param file a name of the file without the .xlsx extension
-     * @return a Stream<T> of mapped POJOs.
+     * @return a Stream of mapped POJOs.
      */
     public static <T> Stream<T> load(Function<Row, T> mapper, boolean hasHeader, int tab, Class testClass, String folder, String file) {
         int skipCount = 0;
@@ -75,7 +94,7 @@ public class ExcelReader {
     /**
      * Assumes the Cell content is numeric and converts that into a Java double
      *
-     * @param cell
+     * @param cell HSF specific datacontainer
      * @return Content converted into double or 0 if blank
      */
     public static double asDouble(Cell cell) {
@@ -95,7 +114,7 @@ public class ExcelReader {
     /**
      * Assumes the Cell content is text and converts it into a java.lang.String
      *
-     * @param cell
+     * @param cell HSF specific datacontainer
      * @return Content converted into String or "" if blank
      */
     public static String asString(Cell cell) {
@@ -121,7 +140,7 @@ public class ExcelReader {
     /**
      * Assumes the Cell content is numeric and converts it into a java.lang.Long
      *
-     * @param cell
+     * @param cell HSF specific datacontainer
      * @return Content converted into Long or 0 if blank
      */
     public static long asLong(Cell cell) {
