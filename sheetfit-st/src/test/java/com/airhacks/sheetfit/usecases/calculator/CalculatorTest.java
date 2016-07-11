@@ -38,7 +38,7 @@ public class CalculatorTest {
 
     //file name without the .xslx ending
     @Parameter(1)
-    public String fileName;
+    public String section;
 
     private Calculator cut;
 
@@ -49,7 +49,7 @@ public class CalculatorTest {
 
     @Test
     public void calculations() {
-        Stream<Input> tests = ExcelReader.load(pojoMapper(), true, 0, this.getClass(), useCase, fileName);
+        Stream<Input> tests = ExcelReader.load(pojoMapper(), true, 0, this.getClass(), useCase, section);
         tests.filter(i -> this.cut.multiply(i.getA(), i.getB()) != i.getResult()).
                 map(i -> i.toString()).
                 forEach(Assert::fail);
