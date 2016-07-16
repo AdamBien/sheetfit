@@ -1,2 +1,2 @@
 # sheetfit
-Excel data loaded for JUnit
+Excel data loader for JUnit
