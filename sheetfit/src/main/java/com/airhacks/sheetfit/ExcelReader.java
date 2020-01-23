@@ -27,6 +27,7 @@ import java.util.function.Function;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -98,13 +99,13 @@ public class ExcelReader {
      * @return Content converted into double or 0 if blank
      */
     public static double asDouble(Cell cell) {
-        int type = cell.getCellType();
+        CellType type = cell.getCellType();
         switch (type) {
-            case Cell.CELL_TYPE_NUMERIC:
+            case NUMERIC:
                 return cell.getNumericCellValue();
-            case Cell.CELL_TYPE_BLANK:
+            case BLANK:
                 return 0;
-            case Cell.CELL_TYPE_FORMULA:
+            case FORMULA:
                 return cell.getNumericCellValue();
             default:
                 throw new IllegalArgumentException("Unknown cell type: " + cell.getCellType());
@@ -118,15 +119,15 @@ public class ExcelReader {
      * @return Content converted into String or "" if blank
      */
     public static String asString(Cell cell) {
-        int type = cell.getCellType();
+        CellType type = cell.getCellType();
         switch (type) {
-            case Cell.CELL_TYPE_STRING:
+            case STRING:
                 return cell.getStringCellValue();
-            case Cell.CELL_TYPE_BLANK:
+            case BLANK:
                 return "";
-            case Cell.CELL_TYPE_NUMERIC:
+            case NUMERIC:
                 return String.valueOf(cell.getNumericCellValue());
-            case Cell.CELL_TYPE_FORMULA:
+            case FORMULA:
                 try {
                     return cell.getStringCellValue();
                 } catch (IllegalStateException ise) {
@@ -144,13 +145,13 @@ public class ExcelReader {
      * @return Content converted into Long or 0 if blank
      */
     public static long asLong(Cell cell) {
-        int type = cell.getCellType();
+        CellType type = cell.getCellType();
         switch (type) {
-            case Cell.CELL_TYPE_NUMERIC:
+            case NUMERIC:
                 return Math.round(cell.getNumericCellValue());
-            case Cell.CELL_TYPE_BLANK:
+            case BLANK:
                 return 0;
-            case Cell.CELL_TYPE_FORMULA:
+            case FORMULA:
                 return Math.round(cell.getNumericCellValue());
             default:
                 throw new IllegalArgumentException("Unknown cell type: " + cell.getCellType());
