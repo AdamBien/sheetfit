@@ -8,7 +8,7 @@
     </parent>
     <groupId>com.airhacks</groupId>
     <artifactId>sheetfit</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
     <description>Turns excel sheets into POJOs for test purposes</description>
     <url>https://github.com/AdamBien/sheetfit</url>
@@ -135,7 +135,7 @@
         <connection>scm:git:git@github.com:AdamBien/sheetfit.git</connection>
         <url>scm:git:git@github.com:AdamBien/sheetfit.git</url>
         <developerConnection>scm:git:git@github.com:AdamBien/sheetfit.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>v0.0.2</tag>
   </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
